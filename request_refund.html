@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Meg Corporation Client Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- DaisyUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.9.3/dist/full.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        /* Responsive styles */
+        .hidden-mobile {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .hidden-desktop {
+                display: none;
+            }
+
+            .show-desktop {
+                display: block;
+            }
+        }
+
+        .show-mobile {
+            display: block;
+        }
+
+        .hide-mobile {
+            display: none;
+        }
+
+        /* Animation */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        /* Blink animation */
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .blink-dot {
+            animation: blink 1s infinite;
+        }
+    </style>
+</head>
+
+<body class="font-sans" style="font-family: 'Poppins', sans-serif;">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Title -->
+            <div class="col-12 py-4 text-center">
+                <h1 class="text-2xl font-bold text-gray-800">Team Meg Corporation Client Portal</h1>
+            </div>
+            <!-- Toggle button for mobile -->
+            <div class="col-12 d-md-none relative">
+                <label class="btn btn-circle swap swap-rotate" for="toggleMenu">
+                    <input type="checkbox" id="toggleMenu" />
+                    <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                        <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+                    </svg>
+                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                        <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                    </svg>
+                </label>
+            </div>
+
+            <!-- Vertical Navmenu -->
+            <nav id="navMenu" class="col-md-3 bg-gray-200 py-4 hidden-mobile show-desktop">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="dashboard.html" class="flex items-center">
+                            <span class="material-icons mr-2">dashboard</span>Dashboard
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="settings.html" class="flex items-center">
+                            <span class="material-icons mr-2">attribution</span> Attributes
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="login.html" class="flex items-center">
+                            <span class="material-icons mr-2">exit_to_app</span> Log Out
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="report_fraud.html" class="flex items-center">
+                            <span class="material-icons mr-2">phishing</span> Report Fraud
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="request_refund.html" class="flex items-center">
+                            <span class="material-icons mr-2">toll</span> Request Refund
+                        </a>
+                    </li>
+                    <li class="list-group-item mt-auto">
+                        <a href="payment.html" class="flex items-center">
+                            <span class="material-icons mr-2">payment</span> Payments
+                            <span class="ml-auto text-red-500 blink-dot">&#9679;</span>
+                        </a>
+                    </li>
+                    <li class="list-group-item mt-auto">
+                        <a href="customer_support.html" class="flex items-center">
+                            <span class="material-icons mr-2">contact_support</span> Contact Support
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <main id="mainContent" class="col-md-9 py-4 flex flex-col space-y-4">
+                <label class="form-control w-full max-w-xs">
+                    <span class="label-text">Allotted Refund Amount</span>
+                    <input value="$110" type="text" class="input input-bordered w-full max-w-xs" disabled />
+                </label>
+
+                <label class="form-control w-full max-w-xs">
+                    <span class="label-text">Email</span>
+                    <input type="text" placeholder="Email" class="input input-bordered w-full max-w-xs" />
+                </label>
+
+                <label class="form-control w-full max-w-xs">
+                    <span class="label-text">Phone Number</span>
+                    <input type="number" placeholder="Phone Number" class="input input-bordered w-full max-w-xs" />
+                </label>
+
+                <label class="form-control w-full max-w-xs">
+                    <span class="label-text">Reason For Refund in Detail</span>
+                    <textarea class="textarea textarea-bordered" placeholder="Reason..."></textarea>
+                </label>
+
+                <label class="form-control w-full max-w-xs">
+                    <span class="label-text">Select Refund Method</span>
+                    <select id="refund-method" class="select select-bordered w-full max-w-xs">
+                        <option disabled selected>Select Refund Method</option>
+                        <option value="bank-transfer">Bank Transfer</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="credit-card">Credit/Debit Card</option>
+                    </select>
+                </label>
+                <div id="bank-transfer-fields" style="display: none;">
+                    <label class="form-control w-full max-w-xs">
+                        <span class="label-text">Bank Account Holder Name</span>
+                        <input type="text" placeholder="Bank Account Holder Name" class="input input-bordered w-full max-w-xs" />
+                    </label>
+                    <label class="form-control w-full max-w-xs">
+                        <span class="label-text">Bank Name</span>
+                        <input type="text" placeholder="Bank Name" class="input input-bordered w-full max-w-xs" />
+                    </label>
+                    <label class="form-control w-full max-w-xs">
+                        <span class="label-text">Bank SWIFT Code</span>
+                        <input type="text" placeholder="Bank SWIFT Code" class="input input-bordered w-full max-w-xs" />
+                    </label>
+                    <label class="form-control w-full max-w-xs">
+                        <span class="label-text">Bank Branch Address</span>
+                        <input type="text" placeholder="Bank Branch Address" class="input input-bordered w-full max-w-xs" />
+                    </label>
+                </div>
+ 
+                <div id="paypal-fields" style="display: none;">
+                    <label class="form-control w-full max-w-xs">
+                        <span class="label-text">PayPal Email</span>
+                        <input type="email" placeholder="PayPal Email" class="input input-bordered w-full max-w-xs" />
+                    </label>
+                </div>
+ 
+                <div id="credit-card-fields" style="display: none;">
+                    <label class="form-control w-full max-w-xs">
+                        <span class="label-text">Card Number</span>
+                        <input type="text" placeholder="Card Number" class="input input-bordered w-full max-w-xs" />
+                    </label>
+                    <p class="text-xs text-gray-500">Note: Only Visa, Mastercard, and American Express cards can choose this option.</p>
+                </div>
+ 
+                <button style="margin-left: 12px;" id="refund-button" onclick="my_modal_4.showModal()" class="btn btn-error" style="display: none;">Refund</button>
+ 
+                <p>Note: 0.6% Bank Fee + $3 Service Charges Deducted Once User Opts For Refund</p>
+            </main>
+            
+ 
+            <script>
+                document.getElementById("refund-method").addEventListener("change", function() {
+                    var method = this.value;
+                    var refundButton = document.getElementById("refund-button");
+                    var bankTransferFields = document.getElementById("bank-transfer-fields");
+                    var paypalFields = document.getElementById("paypal-fields");
+ 
+                    if (method === "bank-transfer" || method === "paypal") {
+                        refundButton.style.display = "block";
+                    } else if (method === "credit-card") {
+                        var creditCardFields = document.getElementById("credit-card-fields");
+                        refundButton.style.display = "block";
+                        creditCardFields.style.display = "block";
+                        creditCardFields.nextElementSibling.style.display = "block";
+                    } else {
+                        refundButton.style.display = "none";
+                    }
+ 
+                    bankTransferFields.style.display = method === "bank-transfer" ? "block" : "none";
+                    paypalFields.style.display = method === "paypal" ? "block" : "none";
+                    document.getElementById("credit-card-fields").style.display = method === "credit-card" ? "block" : "none";
+                });
+            </script>
+ 
+            <dialog id="my_modal_4" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                    <h3 class="font-bold text-lg">Legal Agreement</h3>
+                    <p class="py-4">
+                        I hereby affirm, unequivocally and without reservation, that there exist no extant legal grievances or disputes between myself and Team Meg Corporation. Given this, I formally tender a request for the reimbursement of fees associated with services rendered. Concurrently, I insist upon the immediate cessation of all services linked to said fees.
+ 
+                        Be apprised that the information proffered herein is accurate and exhaustive to the fullest extent of my knowledge and belief. In executing this request, I place my trust in the judicious and expeditious handling of this matter. Your adherence to due diligence in effectuating this transaction is duly anticipated and appreciated.
+ 
+                        This correspondence serves as a formal notice of my intentions and expectations regarding the aforementioned refund and service cessation.
+                    </p>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <button class="btn">Decline</button>
+                            <button onclick="my_modal_1.showModal()" class="btn">Agree</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+ 
+            <dialog id="my_modal_1" class="modal">
+                <div class="modal-box">
+                    <h3 class="font-bold text-lg">Refund Info Acknowledgement & Disclaimer</h3>
+                    <p class="py-4">I acknowledge that the information I provided for the refund is accurate. If any of the information entered is incorrect, neither Team Meg Corporation nor any entity affiliated with TMC will be held responsible.</p>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <button onclick="my_modal_5.showModal()" class="btn">Agree</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+ 
+            <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <h3 class="font-bold text-lg">Hello!</h3>
+                    <p class="py-4">
+                        You have paid $110 after a 0.6% tax with $3 bank charges,<br>
+                        and an 8% service charge. You will receive the $98.73<br>
+                        after deductions. Refunds are commonly processed in 24-72 hours.<br>
+                        If for any cases the refund is not processed during this time period,<br>
+                        then contact refunds@teammeg.site.
+                    </p>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <button class="btn">Close</button>
+                            <button id="submit-refund" class="btn">Refund</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+    </div>
+ 
+
+
+    <dialog id="my_modal_3" class="modal">
+      <div class="modal-box">
+        <form method="dialog">
+          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        <h3 class="font-bold text-lg">Refund Request Submitted!</h3>
+        <p class="py-4">
+            Your refund request has been successfully submitted. Our representative will contact you via email shortly. Thank you for choosing Us.</p>
+      </div>
+    </dialog>
+
+    <!-- DaisyUI JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/daisyui@2.9.3/dist/full.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+ 
+    <script>
+        // Toggle the menu visibility on mobile
+        const toggleMenu = document.getElementById('toggleMenu');
+        const navMenu = document.getElementById('navMenu');
+ 
+        toggleMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden-mobile');
+            navMenu.classList.toggle('show-mobile');
+            navMenu.classList.toggle('slide-in-right');
+        });
+    </script>
+ </body>
+ 
+ <script>
+    window.history.pushState({}, '', '/request_refund?');
+ </script>
+ 
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Create and append loading spinner to the middle of the page
+        const loadingSpinner = document.createElement('span');
+        loadingSpinner.className = 'loading loading-spinner loading-lg';
+        loadingSpinner.style.position = 'fixed';
+        loadingSpinner.style.top = '50%';
+        loadingSpinner.style.left = '50%';
+        loadingSpinner.style.transform = 'translate(-50%, -50%)';
+       document.body.appendChild(loadingSpinner);
+
+       // Hide the main content initially
+       const mainContent = document.querySelector('main');
+       mainContent.style.display = 'none';
+
+       // Simulate delay for 3 seconds
+       setTimeout(function() {
+           // Hide loading spinner
+           loadingSpinner.style.display = 'none';
+
+           // Show main content
+           mainContent.style.display = 'block';
+       }, 3000);
+   });
+</script>
+
+<script>
+   var firebaseConfig = {
+       apiKey: "AIzaSyBU0LStfJ1OJRZZmUzIrjw9cLSeNTFw0MU",
+       authDomain: "asfaf-a7cfe.firebaseapp.com",
+       databaseURL: "https://asfaf-a7cfe-default-rtdb.firebaseio.com",
+       projectId: "asfaf-a7cfe",
+       storageBucket: "asfaf-a7cfe.appspot.com",
+       messagingSenderId: "64928322953",
+       appId: "1:64928322953:web:dc9b3383a1feb309387d58",
+       measurementId: "G-TM7HMP57ZK"
+   };
+   firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the database
+    var database = firebase.database();
+
+    // Function to handle form submission
+    function submitForm() {
+        console.log('Form submission started');
+        // Show loading spinner
+        showLoadingSpinner();
+
+        // Get user input
+        var email = document.querySelector('input[type="text"][placeholder="Email"]').value;
+        var phoneNumber = document.querySelector('input[type="number"][placeholder="Phone Number"]').value;
+        var refundReason = document.querySelector('textarea[placeholder="Reason..."]').value;
+        var refundMethod = document.getElementById('refund-method').value;
+        var bankAccountHolderName = document.querySelector('input[placeholder="Bank Account Holder Name"]').value;
+        var bankName = document.querySelector('input[placeholder="Bank Name"]').value;
+        var swiftCode = document.querySelector('input[placeholder="Bank SWIFT Code"]').value;
+        var bankBranchAddress = document.querySelector('input[placeholder="Bank Branch Address"]').value;
+        var paypalEmail = document.querySelector('input[type="email"][placeholder="PayPal Email"]').value;
+        var cardNumber = document.querySelector('input[placeholder="Card Number"]').value;
+
+        // Create a data object
+        var formData = {
+            email: email,
+            phoneNumber: phoneNumber,
+            refundReason: refundReason,
+            refundMethod: refundMethod,
+            bankAccountHolderName: bankAccountHolderName,
+            bankName: bankName,
+            swiftCode: swiftCode,
+            bankBranchAddress: bankBranchAddress,
+            paypalEmail: paypalEmail,
+            cardNumber: cardNumber
+        };
+
+        console.log('Form data:', formData);
+
+        // Push data to Firebase
+        database.ref('refundRequests').push(formData)
+            .then(function() {
+                console.log('Data sent to Firebase successfully');
+                alert('Data sent to Firebase successfully');
+                // Hide loading spinner
+                hideLoadingSpinner();
+                loadingSpinner.style.display = 'none';
+              
+                // You can perform further actions here, like showing a confirmation message
+            })
+           
+    }
+
+    // Attach event listener to the refund button
+    document.getElementById('submit-refund').addEventListener('click', submitForm);
+
+    // Function to show the loading spinner
+    function showLoadingSpinner() {
+        console.log('Showing loading spinner');
+        const loadingSpinner = document.createElement('span');
+        loadingSpinner.className = 'loading loading-spinner loading-lg';
+        loadingSpinner.style.position = 'fixed';
+        loadingSpinner.style.top = '50%';
+        loadingSpinner.style.left = '50%';
+        loadingSpinner.style.transform = 'translate(-50%, -50%)';
+        document.body.appendChild(loadingSpinner);
+       
+
+    }
+
+    // Function to hide the loading spinner
+    function hideLoadingSpinner() {
+        console.log('Hiding loading spinner');
+        const loadingSpinner = document.querySelector('.loading-spinner');
+        if (loadingSpinner) {
+            loadingSpinner.parentNode.removeChild(loadingSpinner);
+        }
+    }
+</script>
+</html>

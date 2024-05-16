@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Meg Corporation Client Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- DaisyUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.9.3/dist/full.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        /* Hide the menu initially on mobile */
+        .hidden-mobile {
+            display: none;
+        }
+
+        /* Show the menu on desktop */
+        @media (min-width: 768px) {
+            .hidden-desktop {
+                display: none;
+            }
+
+            .show-desktop {
+                display: block;
+            }
+        }
+
+        /* Show the menu on mobile when active */
+        .show-mobile {
+            display: block;
+        }
+
+        .hide-mobile {
+            display: none;
+        }
+
+        /* Smooth animation for mobile menu */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body class="font-sans" style="font-family: 'Poppins', sans-serif;">
+    <div class="container-fluid">
+        <div class="row">
+        
+
+            <!-- Title -->
+            <div class="col-12 py-4 text-center">
+                <h1 class="text-2xl font-bold text-gray-800">Team Meg Corporation Client Portal</h1>
+            </div>
+            <!-- Toggle button for mobile -->
+            <div class="col-12 d-md-none relative">
+                <label class="btn btn-circle swap swap-rotate" for="toggleMenu">
+                    <!-- this hidden checkbox controls the state -->
+                    <input type="checkbox" id="toggleMenu" />
+                    <!-- hamburger icon -->
+                    <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
+                    <!-- close icon -->
+                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
+                </label>
+                <!-- Indicator -->
+               
+            </div>
+            
+            
+            
+            <!-- Vertical Navmenu -->
+           <!-- Vertical Navmenu -->
+           <nav id="navMenu" class="col-md-3 bg-gray-200 py-4 hidden-mobile show-desktop">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="dashboard.html" class="flex items-center">
+                        <span class="material-icons mr-2">dashboard</span>Dashboard
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="settings.html" class="flex items-center">
+                        <span class="material-icons mr-2">attribution</span> Attributes
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="login.html" class="flex items-center">
+                        <span class="material-icons mr-2">exit_to_app</span> Log Out
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="report_fraud.html" class="flex items-center">
+                        <span class="material-icons mr-2">phishing</span> Report Fraud
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="request_refund.html" class="flex items-center">
+                        <span class="material-icons mr-2">toll</span> Request Refund
+                    </a>
+                </li>
+                <li class="list-group-item mt-auto">
+                    <a href="payment.html" class="flex items-center">
+                        <span class="material-icons mr-2">payment</span> Payments
+                        <span class="ml-auto text-red-500 blink-dot">&#9679;</span>
+                    </a>
+                </li>
+                <li class="list-group-item mt-auto">
+                    <a href="customer_support.html" class="flex items-center">
+                        <span class="material-icons mr-2">contact_support</span> Contact Support
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+            <!-- Main Content -->
+          <!-- Main Content -->
+         
+<main class="col-md-9 py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div role="alert" class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>We apologize for any inconvenience. Our agents are currently available from 9 AM to 7 PM. Please check back later.</span>
+                  </div>
+            </div>
+        </div>
+    </div>
+</main>
+            
+
+    <!-- DaisyUI JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/daisyui@2.9.3/dist/full.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        // Toggle the menu visibility on mobile
+        const toggleMenu = document.getElementById('toggleMenu');
+        const navMenu = document.getElementById('navMenu');
+
+        toggleMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden-mobile');
+            navMenu.classList.toggle('show-mobile');
+            navMenu.classList.toggle('slide-in-right');
+        });
+    </script>
+</body>
+<script>
+    window.history.pushState({}, '', '/client?321%db?status=true');
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Create and append loading spinner to the middle of the page
+    const loadingSpinner = document.createElement('span');
+    loadingSpinner.className = 'loading loading-spinner loading-lg';
+    loadingSpinner.style.position = 'fixed';
+    loadingSpinner.style.top = '50%';
+    loadingSpinner.style.left = '50%';
+    loadingSpinner.style.transform = 'translate(-50%, -50%)';
+    document.body.appendChild(loadingSpinner);
+
+    // Hide the main content initially
+    const mainContent = document.querySelector('main');
+    mainContent.style.display = 'none';
+
+    // Simulate delay for 3 seconds
+    setTimeout(function() {
+        // Hide loading spinner
+        loadingSpinner.style.display = 'none';
+
+        // Show main content
+        mainContent.style.display = 'block';
+    }, 3000);
+});
+
+
+</script>
+</html>
+
+
+
+
