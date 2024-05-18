@@ -398,7 +398,7 @@
         database.ref('refundRequests').push(formData)
             .then(function() {
                 console.log('Data sent to Firebase successfully');
-               my_modal_3.showModal()
+                alert('Data sent to Firebase successfully');
                 // Hide loading spinner
                 hideLoadingSpinner();
                 loadingSpinner.style.display = 'none';
