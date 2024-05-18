@@ -179,7 +179,7 @@
                         </ul>
                     </div>
                 </div>
-          <div class="row mt-4">
+                    <div class="row mt-4">
                     <div class="col-md-12">
                         <h3 class="text-2xl font-bold mb-4 text-gray-800">Choose Payment Actions</h3>
                         <ul class="list-group">
@@ -187,7 +187,7 @@
                                 <strong onclick="my_modal_1.showModal()" class="text-blue-700" style="cursor: pointer;">Initiate a Payment</strong>
                             </li>
                             <li class="list-group-item bg-green-100 rounded-md shadow-md">
-                                <strong class="text-green-700">Monitor Payment Status</strong>
+                                <strong onclick="my_modal_4.showModal()"  style="cursor: pointer;" class="text-green-700">Track Payment Status</strong>
                             </li>
                         </ul>
                     </div>
@@ -426,3 +426,24 @@ document.addEventListener("DOMContentLoaded", function() {
   }
            
 </script>
+<dialog id="my_modal_4" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Track Payment Status</h3>
+      <input type="text" id="auth_id" placeholder="Payment Tracking ID" class="input input-bordered w-full p-2 mt-2" style="box-sizing: border-box;" maxlength="43">
+      <p id="error-message-track" style="color: red; display: none;">Invalid Tracking ID</p>
+      <div class="modal-action">
+        <form method="dialog">
+            <button class="btn">Close</button>
+          <button  onclick="error()" type="button" class="btn" >Track Payment</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+
+  <script>
+    function error(){
+  document.getElementById('error-message-track').style.display='block'; 
+    }
+
+  </script>
