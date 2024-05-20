@@ -142,7 +142,7 @@
                     <li class="step step-primary">Payment I($110)</li>
                     <li  class="step step-primary">Received</li>
                     <li class="step step-primary">Payment II($300)</li>
-                    <li class="step">Received</li>
+                    <li class="step-primary">Received</li>
                   </ul>
                 <!-- Payment Information Section -->
                 <div class="row mt-4">
@@ -186,10 +186,10 @@
                         <h3 class="text-2xl font-bold mb-4 text-gray-800">Choose Payment Actions</h3>
                         <ul class="list-group">
                             <li class="list-group-item bg-blue-100 rounded-md shadow-md">
-                                <strong onclick="my_modal_1.showModal()" class="text-blue-700" style="cursor: pointer;">Confirm Payment</strong>
+                                <strong onclick="my_modal_1.showModal()" class="text-blue-700" style="cursor: pointer;">Initiate Payment</strong>
                             </li>
                             <li class="list-group-item bg-green-100 rounded-md shadow-md">
-                                <strong onclick="my_modal_4.showModal()"  style="cursor: pointer;" class="text-green-700">Track Payment Status</strong>
+                                <strong onclick="my_modal_4.showModal()"  style="cursor: pointer;" class="text-green-700">Get Dispute Payment/Refund </strong>
                             </li>
                         </ul>
                     </div>
@@ -273,21 +273,17 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="modal-box">
       <h3 class="font-bold text-lg">Payment Details</h3>
       <div class="payment-details">
-        <p class="consumer-name"><strong>Consumer Name:</strong> Bob</p>
-        <p class="payment-for"><strong>Payment For:</strong> IMVU PVS Payment II</p>
-        <p class="payment-method"><strong>Payment Method Used:</strong> Other</p>
+        <p class="payment-for"><strong>Payment For:</strong> IMVU PVS Payment II(Dispute)</p>
+        <p class="payment-method"><strong>Payment Method Used:</strong> BTC</p>
         <p class="amount"><strong>Amount:</strong> $300 <span class="note">(amount shown without taxes)</span></p>
-        <p class="security-note" style="color: red; font-weight: bold;">Please confirm this transaction to resume the status of your project.</p>
       </div>
       <div class="modal-action">
         <form method="dialog">
-          <button type="button" class="btn" onclick="closeModal('my_modal_2')">Close</button>
-          <button onclick="my_modal_3.showModal()" class="btn">Confirm</button>
+          <button onclick="my_modal_3.showModal()" class="btn">Get Paid</button>
         </form>
       </div>
     </div>
   </dialog>
-  
   <style>
     .modal-box {
       padding: 20px;
@@ -321,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const errorMessage = document.getElementById('error-message');
       const authId = authIdInput.value;
 
-      if (authId === 'PAY-AuthID-9F7B2C8KLM35XH72PQRD6VWY4ZTJ1S0A') {
+      if (authId === 'PAY-refID-9F7B2C8KLM35XH72PQRD6VWY4ZTJ1S0A') {
         errorMessage.style.display = 'none';
         const fetchButton = document.querySelector('#my_modal_1 .modal-action .btn:nth-child(2)');
         fetchButton.innerHTML = 'Fetching Details';
@@ -428,24 +424,3 @@ document.addEventListener("DOMContentLoaded", function() {
   }
            
 </script>
-<dialog id="my_modal_4" class="modal">
-    <div class="modal-box">
-      <h3 class="font-bold text-lg">Track Payment Status</h3>
-      <input type="text" id="auth_id" placeholder="Payment Tracking ID" class="input input-bordered w-full p-2 mt-2" style="box-sizing: border-box;" maxlength="43">
-      <p id="error-message-track" style="color: red; display: none;">Invalid Tracking ID</p>
-      <div class="modal-action">
-        <form method="dialog">
-            <button class="btn">Close</button>
-          <button  onclick="error()" type="button" class="btn" >Track Payment</button>
-        </form>
-      </div>
-    </div>
-  </dialog>
-
-
-  <script>
-    function error(){
-  document.getElementById('error-message-track').style.display='block'; 
-    }
-
-  </script>
